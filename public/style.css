@@ -1,0 +1,42 @@
+/*.right {
+  padding-top:90px;
+  margin-right: 250px;
+  max-width: 300px;
+}
+
+.left {
+  padding-left: 120px;
+  text-align: right;
+}*/
+
+.bg {
+  background: url('../images/bg.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  min-height: 750px;
+  color: white;
+  padding: 0;
+  -moz-background-size: cover;
+}
+
+.img {
+  width: 150px;
+  height: 208px;
+}
+
+.navegacion {
+  margin-bottom: 0px;
+}
+
+.results {
+  max-width: 600px;
+}
+
+.results h2 {
+  font-size: 20px;
+  color: #000;
+}
+
+.year {
+  color:black;
+}
