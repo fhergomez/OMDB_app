@@ -1,0 +1,36 @@
+
+
+<div class="row movie">
+  <div class="col-sm-6 col-md-6 col-lg-6 ">
+  <h2 class="white-text"><%= movieid.Title %></h2>
+    <p><img src="<%= movieid.Poster %>" class="img"></p>
+  </div>
+  <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 right">
+
+    <p><strong>Director:</strong> <%= movieid.Director %></p>
+    <p><strong>Rated:</strong> <%= movieid.Rated %></p>
+    <p><strong>Rating:</strong> <%= movieid.tomatoMeter %></p>
+    <p><strong>IMDB Rating:</strong> <%= movieid.imdbRating %>
+    <p><strong>Year:</strong> <%= movieid.Year %></p>
+    <p><strong>Runtime:</strong> <%= movieid.Runtime %></p>
+    <p><strong>Plot:</strong> <%= movieid.Plot %></p>
+    <p><a href="/" class="btn btn-default">&larr; search more movies</a></p>
+    <% if(favorite){ %>
+      <b>This movie is in your favorites</b>
+    <% } else { %>
+  <form method="post" action="/favorites">
+    <input type="hidden" name="imdbId" value='<%= movieid.imdbID %>'>
+    <input type="hidden" name="title" value='<%= movieid.Title %>'>
+    <input type="hidden" name="year" value='<%= movieid.Year %>'>
+    <input type="hidden" name="poster" value='<%= movieid.Poster %>'>
+    <input type="submit" class="btn btn-danger  pull-left" value="Add to favorites!">
+  </form>
+  <% } %>
+  </div>
+</div>
+
+
+
+
+
+
