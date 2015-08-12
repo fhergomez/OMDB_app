@@ -35,13 +35,9 @@ router.delete('/:id',function(req, res){
 // GET http;://localhost:3000/favorites/:id/comments
 router.get('/:id/comments',function(req,res){
   // res.send(req.params);
-  db.favorite.find({
-    where:{id:req.params.id},
-    include:[db.comment]
-  }).then(function(favorite){
-    res.render('comments/index', {
-      favorite:favorite
-    });
+  db.favorite.find({where:{id:req.params.id},
+    include:[db.comment]}).then(function(favorite){
+      res.render('comments/index', {favorite:favorite});
   });
 });
 
@@ -51,6 +47,32 @@ router.post('/:id/comments',function(req,res){
     favorite.createComment({body:req.body.body}).then(function(comment){
       res.redirect('/favorites/' + favorite.id + '/comments');
     })
+  });
+  // res.send({params:req.params,body:req.body});
+});
+
+router.get('/:id', function(req, res) {
+  db.favorite.find({where:{id: parseInt(req.params.id)},
+    include:[db.tag]}).then(function(favorite) {
+      res.render('favorites/show', {favorite:favorite});
+    });
+});
+
+router.get('/:id/tags/new', function(req, res) {
+  res.render('tags/new', {favoriteId: req.params.id});
+});
+
+router.post('/:id/tags',function(req,res){
+  // res.send("The tag name: " + req.body.tagName + "<br>The post id: " + req.params.id);
+  var tagName = req.body.tagName;
+  var favoriteId = req.params.id;
+  db.favorite.findbyId(favoriteId).then(function(favorite){
+    db.tag.findOrCreate({where: {name: tagName}
+    }).spread(function(tag,created){
+      favorite.addTag(tag).then(function(){
+        res.redirect('/favorites/' + favorite.id);
+      });
+    });
   });
   // res.send({params:req.params,body:req.body});
 });

@@ -1,17 +1,17 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('comments', {
+    return queryInterface.createTable('favoritesTags', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      body: {
-        type: Sequelize.TEXT
-      },
       favoriteId: {
+        type: Sequelize.INTEGER
+      },
+      tagId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -25,6 +25,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('comments');
+    return queryInterface.dropTable('favoritesTags');
   }
 };

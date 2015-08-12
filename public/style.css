@@ -9,11 +9,15 @@
   text-align: right;
 }*/
 
-.bg {
-  background: url('../images/bg.jpg') no-repeat center center;
+body {
+  background: url(images/bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  min-height: 750px;
+}
+
+.bg {
   color: white;
   padding: 0;
   -moz-background-size: cover;
