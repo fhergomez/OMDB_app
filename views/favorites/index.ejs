@@ -6,15 +6,19 @@
 <div class="well">
   <img src="<%= movie.poster %>" height="70" class="pull-right">
   <h2><a href="/movies/<%= movie.imdbId %>"><%= movie.title %> (<%= movie.year %>)</a></h2>
+ <a href="/favorites/<%= movie.id %>/tags/new" class="btn btn-primary">New Tag</a>
   <a href="/favorites/<%= movie.id %>/comments" class="btn btn-primary">
     Comments (<%= movie.comments.length %>)
   </a>
   <form method="post" action="/favorites/<%= movie.id %>?_method=delete">
   <button type="submit" class="btn btn-danger glyphicon glyphicon-trash"></button>
   </form>
-  <div>
-    <a href="/favorites/<% favorite.id %>/tags/new" class="btn btn-primary">New Tag</a>
+
+  <ul>
+  <% favorites.forEach(function(tag) { %>
+
+  <% }) %>
+
   </div>
-</div>
 <% }); %>
 </div>

@@ -15,17 +15,14 @@
     <p><strong>Runtime:</strong> <%= movieid.Runtime %></p>
     <p><strong>Plot:</strong> <%= movieid.Plot %></p>
     <p><a href="/" class="btn btn-default">&larr; search more movies</a></p>
-    <% if(favorite){ %>
-      <b>This movie is in your favorites</b>
-    <% } else { %>
   <form method="post" action="/favorites">
     <input type="hidden" name="imdbId" value='<%= movieid.imdbID %>'>
     <input type="hidden" name="title" value='<%= movieid.Title %>'>
     <input type="hidden" name="year" value='<%= movieid.Year %>'>
     <input type="hidden" name="poster" value='<%= movieid.Poster %>'>
-    <input type="submit" class="btn btn-danger pull-left" value="Add to favorites!">
-  </form><br><br>
-  <% } %>
+    <input type="submit" class="btn btn-danger  pull-left" value="Add to favorites!">
+  </form>
+
   </div>
 </div>
 

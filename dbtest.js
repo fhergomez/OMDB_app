@@ -6,7 +6,10 @@ var db = require("./models");
 //   year: "1989"
 // });
 
-db.tag.create({tag:"action"}).then(function(tag){
+db.tag.findOrCreate({where:{tag:"action"}}).spreadfunction(tag, created){
+  db.favorite.findById(1).then(function(favorite) {
+    favorite.addTag(tag.then.(function()))
+  })
   console.log(tag.get());
 });
 

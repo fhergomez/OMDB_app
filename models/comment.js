@@ -9,6 +9,11 @@ module.exports = function(sequelize, DataTypes) {
         // associations can be defined here
         models.comment.belongsTo(models.favorite);
       }
+    },
+    hooks: {
+      beforeCreate: function(comment){
+        comment.get().body=comment.get().body.toLowerCase();
+      }
     }
   });
   return comment;

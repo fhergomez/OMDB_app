@@ -1,20 +1,12 @@
 <h1>Add a new Tag</h1>
 
-<form action="/favorites/<%= favoriteId%>/tags" method="POST" role="form">
+<form action="/favorites/<%= favoriteId %>/tags" method="POST" role="form">
   <div class="form-group">
     <label for="tagName">Tag Name:</label>
-    <input name="tagName" type="text" class="form-control" id="tagName" placeholder="#hashtag">
+    <input name="tagName" type="text" class="form-control" id="tagName">
   </div>
 
 
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-<div class="well">
-  <ul>
-  <% favorite.tags.forEach(function(tag) { %>
-    <li>#<%= tag.tag %></li>
-  <% }); %>
-  </ul>
-</div>
